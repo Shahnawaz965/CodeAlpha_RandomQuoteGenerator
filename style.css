@@ -2,10 +2,18 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
+
+background:linear-gradient(-45deg,#667eea,#764ba2,#11998e,#38ef7d);
+
+background-size:400% 400%;
+
+animation:gradient 15s ease infinite;
+
+min-height:100vh;
 
 display:flex;
 
@@ -13,11 +21,27 @@ justify-content:center;
 
 align-items:center;
 
-min-height:100vh;
-
-background:linear-gradient(135deg,#667eea,#764ba2);
-
 padding:20px;
+
+transition:.5s;
+
+}
+
+@keyframes gradient{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+body.dark{
+
+background:#0f172a;
+
+animation:none;
 
 }
 
@@ -25,79 +49,135 @@ padding:20px;
 
 width:100%;
 
-max-width:420px;
+max-width:520px;
 
-background:rgba(255,255,255,.18);
-
-backdrop-filter:blur(18px);
+padding:25px;
 
 border-radius:25px;
 
-padding:35px;
+background:rgba(255,255,255,.15);
 
-text-align:center;
+backdrop-filter:blur(20px);
 
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-
-border:1px solid rgba(255,255,255,.3);
-
-}
-
-h1{
-
-font-size:42px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
 
 color:white;
 
-margin-bottom:30px;
+transition:.4s;
 
 }
 
-#quote{
+body.dark .container{
 
-font-size:26px;
+background:#1e293b;
 
-font-style:italic;
+}
 
-color:white;
+header{
 
-line-height:1.6;
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
 
 margin-bottom:20px;
 
 }
 
-#quote::before{
+header h1{
 
-content:"❝ ";
+font-size:32px;
 
-font-size:40px;
+}
+
+header p{
+
+font-size:14px;
+
+opacity:.8;
+
+}
+
+#themeBtn{
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+font-size:22px;
+
+cursor:pointer;
+
+background:white;
+
+transition:.3s;
+
+}
+
+#themeBtn:hover{
+
+transform:rotate(25deg);
+
+}
+
+.status{
+
+margin-bottom:15px;
+
+font-weight:bold;
+
+}
+
+.quoteBox{
+
+background:rgba(255,255,255,.15);
+
+padding:25px;
+
+border-radius:20px;
+
+margin-bottom:20px;
+
+animation:fade .5s;
+
+}
+
+#quote{
+
+font-size:24px;
+
+line-height:1.6;
+
+font-style:italic;
 
 }
 
 #author{
 
-font-size:22px;
+margin-top:15px;
 
-font-weight:bold;
-
-color:white;
-
-margin-bottom:30px;
+text-align:right;
 
 }
 
 .buttons{
 
-display:flex;
+display:grid;
 
-flex-direction:column;
+grid-template-columns:repeat(2,1fr);
 
-gap:15px;
+gap:10px;
+
+margin-bottom:20px;
 
 }
 
-button{
+.buttons button{
 
 padding:15px;
 
@@ -105,30 +185,234 @@ border:none;
 
 border-radius:50px;
 
-font-size:18px;
-
 font-weight:bold;
-
-background:white;
-
-color:#5b4dd8;
 
 cursor:pointer;
 
+background:white;
+
+color:#4f46e5;
+
 transition:.3s;
 
-box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.buttons button:hover{
+
+transform:translateY(-3px);
 
 }
 
-button:hover{
+.search input{
 
-transform:scale(1.05);
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:40px;
+
+margin-bottom:20px;
+
+outline:none;
 
 }
 
-button:active{
+.categories{
 
-transform:scale(.96);
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:10px;
+
+margin-bottom:20px;
+
+}
+
+.categories button{
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+background:white;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.categories button:hover{
+
+background:#4f46e5;
+
+color:white;
+
+}
+
+.challenge{
+
+padding:20px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.15);
+
+margin-bottom:20px;
+
+}
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:12px;
+
+margin-top:20px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.15);
+
+padding:20px;
+
+border-radius:18px;
+
+text-align:center;
+
+}
+
+footer{
+
+margin-top:25px;
+
+text-align:center;
+
+}
+
+footer hr{
+
+margin-bottom:15px;
+
+}
+
+#loader{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:#111827;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+.loader-box{
+
+text-align:center;
+
+color:white;
+
+}
+
+.loader{
+
+width:70px;
+
+height:70px;
+
+margin:20px auto;
+
+border:7px solid rgba(255,255,255,.3);
+
+border-top:7px solid white;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.buttons{
+
+grid-template-columns:1fr;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+header h1{
+
+font-size:26px;
+
+}
+
+#quote{
+
+font-size:20px;
+
+}
 
 }
