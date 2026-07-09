@@ -1,42 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>Random Quote Generator</title>
+<title>QuoteVerse Pro v6.0</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#4f46e5">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<!-- Loader -->
 
-<h1>Random Quote Generator</h1>
+<div id="loader" class="loader">
 
-<div class="quote-box">
+<div class="spinner"></div>
 
-<p id="quote"></p>
-
-<h3 id="author"></h3>
+<p>Loading QuoteVerse...</p>
 
 </div>
+
+<!-- Header -->
+
+<header class="topbar">
+
+<h1>
+
+📖 QuoteVerse Pro
+
+</h1>
+
+<button id="themeBtn"
+onclick="toggleTheme()">
+
+🌙
+
+</button>
+
+</header>
+
+<!-- Status -->
+
+<div class="status">
+
+<span id="onlineStatus">
+
+🟢 Online
+
+</span>
+
+</div>
+
+<!-- Quote Card -->
+
+<section
+id="quoteCard"
+class="quote-card">
+
+<p id="quote">
+
+Loading quote...
+
+</p>
+
+<h3 id="author">
+
+— Unknown
+
+</h3>
 
 <div class="buttons">
 
-<button onclick="newQuote()">🔄 New Quote</button>
+<button onclick="newQuote()">
 
-<button onclick="copyQuote()">📋 Copy Quote</button>
+🔄 New Quote
 
-<button onclick="shareQuote()">📤 Share Quote</button>
+</button>
+
+<button onclick="favoriteQuote()">
+
+❤️ Favorite
+
+</button>
+
+<button onclick="copyQuote()">
+
+📋 Copy
+
+</button>
+
+<button onclick="shareQuote()">
+
+📤 Share
+
+</button>
+
+<button onclick="speakQuote()">
+
+🔊 Speak
+
+</button>
+
+<button onclick="downloadQuote()">
+
+⬇ Download
+
+</button>
+
+</div>
+
+</section>
+<!-- Search -->
+
+<section class="search-section">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search quotes...">
+
+<button onclick="searchQuote()">
+
+🔍 Search
+
+</button>
+
+</section>
+
+<!-- Category -->
+
+<section class="category-section">
+
+<button onclick="filterCategory('All')">All</button>
+
+<button onclick="filterCategory('Motivation')">Motivation</button>
+
+<button onclick="filterCategory('Success')">Success</button>
+
+<button onclick="filterCategory('Life')">Life</button>
+
+<button onclick="filterCategory('Education')">Education</button>
+
+</section>
+
+<!-- Dashboard -->
+
+<section class="dashboard">
+
+<div class="card">
+
+<h2 id="readCount">0</h2>
+
+<p>Quotes Read</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="favCount">0</h2>
+
+<p>Favorites</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="historyCount">0</h2>
+
+<p>History</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="streakCount">0</h2>
+
+<p>Streak</p>
+
+</div>
+
+</section>
+
+<!-- Progress -->
+
+<section class="progress-section">
+
+<h3>Reading Progress</h3>
+
+<div class="progress">
+
+<div
+id="progressFill"
+class="progress-fill">
 
 </div>
 
 </div>
+
+<p id="progressText">
+
+0%
+
+</p>
+
+</section>
+
+<!-- Quote of the Day -->
+
+<section class="today-section">
+
+<h2>
+
+🌟 Quote of the Day
+
+</h2>
+
+<p id="todayQuote">
+
+Today's quote will appear here.
+
+</p>
+
+</section>
+
+<!-- Daily Challenge -->
+
+<section class="challenge-section">
+
+<h2>
+
+🎯 Daily Challenge
+
+</h2>
+
+<p id="challenge">
+
+Loading...
+
+</p>
+
+</section>
+
+<!-- Auto Refresh -->
+
+<section class="countdown-section">
+
+<h3>
+
+Next Quote In
+
+</h3>
+
+<p id="countdown">
+
+30 sec
+
+</p>
+
+<button onclick="quickRefresh()">
+
+⚡ Refresh Now
+
+</button>
+
+</section>
+
+<!-- Favorites -->
+
+<section>
+
+<h2>
+
+❤️ Favorites
+
+</h2>
+
+<div id="favoritesContainer">
+
+<p>No favorites yet.</p>
+
+</div>
+
+</section>
+
+<!-- History -->
+
+<section>
+
+<h2>
+
+📜 History
+
+</h2>
+
+<div id="historyContainer">
+
+<p>No history available.</p>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+
+QuoteVerse Pro v6.0
+
+</p>
+
+<p>
+
+Developed by Mohammad Shahnawaz Faiyaz
+
+</p>
+
+</footer>
+
+<!-- Scripts -->
+
+<script src="offlineQuotes.js"></script>
 
 <script src="script.js"></script>
 
